@@ -1,0 +1,95 @@
+:root {
+  --bg: #fdfbf7;
+  --surface: #ffffff;
+  --surface2: #f6f1e4;
+  --ink: #1e1a14;
+  --muted: #6d6151;
+  --border: #e8e0cc;
+  --gold: #b9975b;
+  --gold-dark: #8a743c;
+  --gold-soft: #f3ecdb;
+  --green: #2f6b3a;
+  --red: #a83c2a;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.6;
+}
+h1, h2, h3 {
+  font-family: var(--font-fraunces), Georgia, serif;
+  line-height: 1.25;
+  margin: 0 0 0.5rem;
+}
+a { color: inherit; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+.header {
+  display: flex; align-items: center; gap: 24px;
+  padding: 14px 20px; background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 10;
+}
+.header-inner { display: flex; align-items: center; gap: 24px; width: 100%; max-width: 1080px; margin: 0 auto; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+.brand-name { font-family: var(--font-fraunces), Georgia, serif; font-size: 21px; font-weight: 700; }
+.nav { display: flex; gap: 18px; margin-left: auto; font-size: 14.5px; }
+.nav a { text-decoration: none; color: var(--muted); }
+.nav a:hover { color: var(--gold-dark); text-decoration: underline; }
+
+.notice {
+  background: var(--gold-soft); border: 1px solid var(--border);
+  border-left: 4px solid var(--gold); padding: 12px 16px;
+  margin: 20px 0 0; font-size: 14px;
+}
+.hero { padding: 36px 0 8px; }
+.hero h1 { font-size: clamp(30px, 5vw, 46px); }
+.hero p { color: var(--muted); max-width: 680px; font-size: 17px; }
+.date-line { font-size: 14px; color: var(--muted); margin: 8px 0 0; }
+.date-line strong { color: var(--ink); }
+
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 22px 0; }
+.card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-top: 3px solid var(--gold); padding: 18px; border-radius: 6px;
+}
+.card h3 { font-size: 20px; }
+.card .big { font-size: 24px; font-weight: 700; margin: 6px 0 2px; }
+.card .sub { color: var(--muted); font-size: 14px; margin: 0; }
+.up { color: var(--green); font-weight: 600; font-size: 14px; }
+.down { color: var(--red); font-weight: 600; font-size: 14px; }
+
+section.block { padding: 28px 0; border-top: 1px solid var(--border); margin-top: 28px; }
+section.block h2 { font-size: 27px; }
+section.block p.lead { color: var(--muted); max-width: 720px; }
+table { width: 100%; border-collapse: collapse; background: var(--surface); font-size: 15px; }
+th, td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--border); }
+th { background: var(--surface2); font-size: 13.5px; letter-spacing: 0.02em; }
+.city-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 16px; }
+.city-card { background: var(--surface); border: 1px solid var(--border); padding: 16px; border-radius: 6px; }
+.city-card h3 { font-size: 19px; margin-bottom: 2px; }
+.city-card p { margin: 2px 0; font-size: 14.5px; color: var(--muted); }
+.city-card .rate { color: var(--ink); font-weight: 700; font-size: 16px; }
+.city-card .soon { font-size: 12.5px; color: var(--gold-dark); }
+.faq details { background: var(--surface); border: 1px solid var(--border); padding: 14px 16px; margin: 10px 0; border-radius: 6px; }
+.faq summary { cursor: pointer; font-weight: 600; }
+.footer { border-top: 1px solid var(--border); margin-top: 36px; padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
+.footer strong { color: var(--ink); }
+
+@media (max-width: 820px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .city-grid { grid-template-columns: 1fr 1fr; }
+  .header-inner { flex-wrap: wrap; gap: 10px; }
+  .nav { margin-left: 0; flex-wrap: wrap; gap: 12px; font-size: 13.5px; }
+}
+@media (max-width: 520px) {
+  .cards, .city-grid { grid-template-columns: 1fr; }
+  table { font-size: 14px; }
+  th, td { padding: 9px 8px; }
+}
