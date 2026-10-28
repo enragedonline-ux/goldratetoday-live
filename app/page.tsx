@@ -171,7 +171,7 @@ export default async function HomePage() {
             <article className="card" key={r.carat}>
               <h3>{r.carat} Gold</h3>
               <p className="sub">{r.label}</p>
-              <p className="big rate-hero">{inr(r.perGram)} / gram</p>
+              <p className={r.carat === "24K" || r.carat === "22K" ? "big rate-hero" : "big"}>{inr(r.perGram)} / gram</p>
               <p className="sub"><span className="rate">{inr(r.per10Gram)} / 10 gram</span></p>
               {data.changeAvailable ? (
                 <>
