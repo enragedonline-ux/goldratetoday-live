@@ -162,8 +162,7 @@ export default async function HomePage() {
             ) : (
               <>Sample rates for <strong>{data.dateLabel}</strong></>
             )}{" "}
-            · 24K {inr(rate24.perGram)} per gram · 22K {inr(rate22.perGram)}{" "}
-            per gram
+            · <span className="rate">24K {inr(rate24.perGram)} per gram</span> · <span className="rate">22K {inr(rate22.perGram)} per gram</span>
           </p>
         </div>
 
@@ -172,15 +171,15 @@ export default async function HomePage() {
             <article className="card" key={r.carat}>
               <h3>{r.carat} Gold</h3>
               <p className="sub">{r.label}</p>
-              <p className="big">{inr(r.perGram)} / gram</p>
-              <p className="sub">{inr(r.per10Gram)} / 10 gram</p>
+              <p className="big rate-hero">{inr(r.perGram)} / gram</p>
+              <p className="sub"><span className="rate">{inr(r.per10Gram)} / 10 gram</span></p>
               {data.changeAvailable ? (
                 <>
                   <p className={r.changePerGram >= 0 ? "up" : "down"}>
                     {signed(r.changePerGram)} today ({signedPct(r.changePct)})
                   </p>
                   <p className="sub">
-                    Yesterday: {inr(r.yesterdayPerGram)} / gram
+                    Yesterday: <span className="rate">{inr(r.yesterdayPerGram)} / gram</span>
                   </p>
                 </>
               ) : (
@@ -221,10 +220,10 @@ export default async function HomePage() {
               {data.sessions.map((s) => (
                 <tr key={s.session}>
                   <td>{s.session}</td>
-                  <td>{inr(s.perGram24k)}</td>
-                  <td>{inr(s.perGram22k)}</td>
-                  <td>{inr(s.perGram18k)}</td>
-                  <td>{inr(s.perGram14k)}</td>
+                  <td><span className="rate">{inr(s.perGram24k)}</span></td>
+                  <td><span className="rate">{inr(s.perGram22k)}</span></td>
+                  <td><span className="rate">{inr(s.perGram18k)}</span></td>
+                  <td><span className="rate">{inr(s.perGram14k)}</span></td>
                 </tr>
               ))}
             </tbody>
@@ -248,8 +247,8 @@ export default async function HomePage() {
               <article className="city-card" key={c.city}>
                 <h3>{c.city}</h3>
                 <p>{c.state}</p>
-                <p className="rate">24K: {inr(rate24.perGram)} / gram</p>
-                <p className="rate">22K: {inr(rate22.perGram)} / gram</p>
+                <p><span className="rate">24K: {inr(rate24.perGram)} / gram</span></p>
+                <p><span className="rate">22K: {inr(rate22.perGram)} / gram</span></p>
                 <p className="soon">City page coming in the next phase</p>
               </article>
             ))}
@@ -280,8 +279,8 @@ export default async function HomePage() {
                   {data.history7.map((row) => (
                     <tr key={row.date}>
                       <td>{row.date}</td>
-                      <td>{inr(row.perGram24k)}</td>
-                      <td>{inr(row.perGram24k * 10)}</td>
+                      <td><span className="rate">{inr(row.perGram24k)}</span></td>
+                      <td><span className="rate">{inr(row.perGram24k * 10)}</span></td>
                       <td>
                         {row.changePerGram === null
                           ? "—"
@@ -293,8 +292,7 @@ export default async function HomePage() {
               </table>
               {historyLow !== null && historyHigh !== null && (
                 <p className="date-line">
-                  7-day range: low {inr(historyLow)} / gram, high{" "}
-                  {inr(historyHigh)} / gram
+                  7-day range: low <span className="rate">{inr(historyLow)} / gram</span>, high <span className="rate">{inr(historyHigh)} / gram</span>
                   {data.live ? "." : " (sample history)."}
                 </p>
               )}
@@ -323,9 +321,9 @@ export default async function HomePage() {
               </tr>
             </thead>
             <tbody>
-              <tr><td>1 gram</td><td>{inr(rate22.perGram)}</td></tr>
-              <tr><td>8 gram</td><td>{inr(rate22.perGram * 8)}</td></tr>
-              <tr><td>10 gram</td><td>{inr(rate22.per10Gram)}</td></tr>
+              <tr><td>1 gram</td><td><span className="rate">{inr(rate22.perGram)}</span></td></tr>
+              <tr><td>8 gram</td><td><span className="rate">{inr(rate22.perGram * 8)}</span></td></tr>
+              <tr><td>10 gram</td><td><span className="rate">{inr(rate22.per10Gram)}</span></td></tr>
             </tbody>
           </table>
           <p className="date-line">Metal cost only, before GST and making charges.</p>
