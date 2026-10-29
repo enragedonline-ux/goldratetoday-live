@@ -29,26 +29,19 @@ const FAQS = [
   },
 ];
 
-export async function generateMetadata(): Promise<Metadata> {
-  const data = await getLiveGold();
-  const rate24 = data.rates.find((r) => r.carat === "24K")!;
-  const rate22 = data.rates.find((r) => r.carat === "22K")!;
-  const title = `Gold Rate Today: 24K ${inr(rate24.perGram)}/g in India`;
-  const description = `Gold rate today in India: 24K ${inr(rate24.perGram)}/g, 22K ${inr(rate22.perGram)}/g, per gram and per 10 gram, with morning and evening rates in 20 cities.`;
-  return {
-    title,
-    description,
-    alternates: { canonical: `${SITE_URL}/` },
-    openGraph: {
-      title,
-      description,
-      url: `${SITE_URL}/`,
-      siteName: SITE_NAME,
-      type: "website",
-    },
-    twitter: { card: "summary", title, description },
-  };
-}
+export const metadata: Metadata = {
+  title: "Gold Rate Today in India: 24K, 22K, 18K, 14K Rates",
+  description: DESCRIPTION,
+  alternates: { canonical: `${SITE_URL}/` },
+  openGraph: {
+    title: "Gold Rate Today in India: 24K, 22K, 18K, 14K Rates",
+    description: DESCRIPTION,
+    url: `${SITE_URL}/`,
+    siteName: SITE_NAME,
+    type: "website",
+  },
+  twitter: { card: "summary", title: "Gold Rate Today in India: 24K, 22K, 18K, 14K Rates", description: DESCRIPTION },
+};
 
 export default async function HomePage() {
   const data = await getLiveGold();
@@ -79,7 +72,7 @@ export default async function HomePage() {
         "@id": `${SITE_URL}/`,
         url: `${SITE_URL}/`,
         name: "Gold Rate Today in India",
-        description: `Gold rate today in India: 24K ${inr(rate24.perGram)}/g, 22K ${inr(rate22.perGram)}/g, per gram and per 10 gram, with morning and evening rates in 20 cities.`,
+        description: DESCRIPTION,
         isPartOf: { "@type": "WebSite", name: SITE_NAME, url: `${SITE_URL}/` },
       },
       {

@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import PurityPage, { type PurityConfig } from "@/components/PurityPage";
 import { SITE_URL } from "@/lib/site";
-import { inr } from "@/lib/rates";
-import { getLiveGold } from "@/lib/live";
 
 const config: PurityConfig = {
   "carat": "22K",
@@ -44,18 +42,12 @@ const config: PurityConfig = {
   ]
 };
 
-export async function generateMetadata(): Promise<Metadata> {
-  const data = await getLiveGold();
-  const r = data.rates.find((x) => x.carat === "22K")!;
-  const title = `22K Gold Rate Today: ${inr(r.perGram)}/g in India`;
-  const description = `22K gold rate today in India: ${inr(r.perGram)}/g, ${inr(r.per10Gram)}/10g, benchmark before GST and making charges.`;
-  return {
-    title, description,
-    alternates: { canonical: `${SITE_URL}/${config.slug}/` },
-    openGraph: { title, description, url: `${SITE_URL}/${config.slug}/`, siteName: "GoldRateToday", type: "website" },
-    twitter: { card: "summary", title, description },
-  };
-}
+export const metadata: Metadata = {
+  title: config.title, description: config.description,
+  alternates: { canonical: `${SITE_URL}/${config.slug}/` },
+  openGraph: { title: config.title, description: config.description, url: `${SITE_URL}/${config.slug}/`, siteName: "GoldRateToday", type: "website" },
+  twitter: { card: "summary", title: config.title, description: config.description },
+};
 
 export default function Page() {
   return <PurityPage config={config} />;

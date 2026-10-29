@@ -23,10 +23,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { cityslug } = await params;
   const c = parseCity(cityslug);
   if (!c) return { title: "Gold Rate Today in India" };
-  const data = await getLiveGold();
-  const r22 = data.rates.find((r) => r.carat === "22K")!;
-  const title = `Gold Rate Today in ${c.city}: 22K ${inr(r22.perGram)}/g`;
-  const description = `Gold rate today in ${c.city}: 22K ${inr(r22.perGram)}/g, 24K ${inr(data.rates.find((r) => r.carat === "24K")!.perGram)}/g. Benchmark rates before GST.`;
+  const title = `Gold Rate Today in ${c.city}: 22K Gold Rate`;
+  const description = `Gold rate today in ${c.city} for 22K and 24K, per gram and per 10 gram, with morning and evening rates, before GST and making charges.`;
   return {
     title,
     description,
