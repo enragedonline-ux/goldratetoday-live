@@ -29,7 +29,9 @@ const FAQS = [
 ];
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = "Gold Price Calculator: 24K, 22K Rate in India";
+  const data = await getLiveGold();
+  const rate24 = data.rates.find((r) => r.carat === "24K")!;
+  const title = `Gold Price Calculator: 24K ${inr(rate24.perGram)}/g in India`;
   return {
     title,
     description: DESCRIPTION,

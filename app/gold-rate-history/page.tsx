@@ -9,11 +9,14 @@ const DESCRIPTION = "Gold rate history: how yesterday's rate compares with today
 const URL = `${SITE_URL}/gold-rate-history/`;
 
 export async function generateMetadata(): Promise<Metadata> {
+  const data = await getLiveGold();
+  const r24 = data.rates.find((r) => r.carat === "24K")!;
+  const liveDescription = `Gold rate history: 24K ${inr(r24.perGram)}/g today vs ${inr(r24.yesterdayPerGram)}/g yesterday, with a 7-day table and why history is approximate.`;
   return {
-    title: TITLE, description: DESCRIPTION,
+    title: TITLE, description: liveDescription,
     alternates: { canonical: URL },
-    openGraph: { title: TITLE, description: DESCRIPTION, url: URL, siteName: SITE_NAME, type: "website" },
-    twitter: { card: "summary", title: TITLE, description: DESCRIPTION },
+    openGraph: { title: TITLE, description: liveDescription, url: URL, siteName: SITE_NAME, type: "website" },
+    twitter: { card: "summary", title: TITLE, description: liveDescription },
   };
 }
 

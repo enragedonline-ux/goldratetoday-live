@@ -10,7 +10,7 @@
 // Honesty rule: the spot-converted figure is an INTERNATIONAL BENCHMARK
 // before Indian import duty, GST, dealer premium and making charges, so it
 // is materially below a local jeweller / IBJA-style retail rate. It must
-// never be fudged up to match the old sample (24K Rs 14,230/g, 28 Oct 2026).
+// never be fudged up to match the old sample figures.
 // On ANY fetch failure this module returns live: false with the old dated
 // sample as fallback data, so the build and the page never break and the
 // page never presents sample figures as live.

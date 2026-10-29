@@ -3,7 +3,7 @@ import { SITE_URL } from "@/lib/site";
 import { CITIES, cityUrl } from "@/lib/cities";
 import { POSTS } from "@/lib/posts";
 
-const DATE = new Date("2026-10-29");
+const DATE = new Date();
 
 function entry(path: string, priority: number): MetadataRoute.Sitemap[number] {
   return { url: `${SITE_URL}${path}`, lastModified: DATE, changeFrequency: "daily", priority };

@@ -16,25 +16,26 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Gold Rate Today: 24K ₹14,230/g in India",
+  title: "Gold Rate Today in India | GoldRateToday",
   description:
-    "Gold rate in India today for 24K, 22K, 18K and 14K, per gram and per 10 gram, with morning and evening rates and a purity guide.",
+    "Gold rate today in India for 24K, 22K, 18K and 14K, per gram and per 10 gram, in 20 cities, with morning and evening rates and a purity guide.",
   metadataBase: new URL(SITE_URL),
+  robots: { index: true, follow: true },
   alternates: { canonical: `${SITE_URL}/` },
   icons: { icon: "/favicon.svg" },
   openGraph: {
-    title: "Gold Rate Today: 24K ₹14,230/g in India",
+    title: "Gold Rate Today in India | GoldRateToday",
     description:
-      "Gold rate in India today for 24K, 22K, 18K and 14K, per gram and per 10 gram, with morning and evening rates and a purity guide.",
+      "Gold rate today in India for 24K, 22K, 18K and 14K, per gram and per 10 gram, in 20 cities, with morning and evening rates and a purity guide.",
     url: `${SITE_URL}/`,
     siteName: "GoldRateToday",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "Gold Rate Today: 24K ₹14,230/g in India",
+    title: "Gold Rate Today in India | GoldRateToday",
     description:
-      "Gold rate in India today for 24K, 22K, 18K and 14K, per gram and per 10 gram, with morning and evening rates and a purity guide.",
+      "Gold rate today in India for 24K, 22K, 18K and 14K, per gram and per 10 gram, in 20 cities, with morning and evening rates and a purity guide.",
   },
 };
 

@@ -32,20 +32,21 @@ const FAQS = [
 export async function generateMetadata(): Promise<Metadata> {
   const data = await getLiveGold();
   const rate24 = data.rates.find((r) => r.carat === "24K")!;
-  // Title stays within 60 chars (verified: 39 chars at Rs 12,379/g).
+  const rate22 = data.rates.find((r) => r.carat === "22K")!;
   const title = `Gold Rate Today: 24K ${inr(rate24.perGram)}/g in India`;
+  const description = `Gold rate today in India: 24K ${inr(rate24.perGram)}/g, 22K ${inr(rate22.perGram)}/g, per gram and per 10 gram, with morning and evening rates in 20 cities.`;
   return {
     title,
-    description: DESCRIPTION,
+    description,
     alternates: { canonical: `${SITE_URL}/` },
     openGraph: {
       title,
-      description: DESCRIPTION,
+      description,
       url: `${SITE_URL}/`,
       siteName: SITE_NAME,
       type: "website",
     },
-    twitter: { card: "summary", title, description: DESCRIPTION },
+    twitter: { card: "summary", title, description },
   };
 }
 
@@ -78,7 +79,7 @@ export default async function HomePage() {
         "@id": `${SITE_URL}/`,
         url: `${SITE_URL}/`,
         name: "Gold Rate Today in India",
-        description: DESCRIPTION,
+        description: `Gold rate today in India: 24K ${inr(rate24.perGram)}/g, 22K ${inr(rate22.perGram)}/g, per gram and per 10 gram, with morning and evening rates in 20 cities.`,
         isPartOf: { "@type": "WebSite", name: SITE_NAME, url: `${SITE_URL}/` },
       },
       {
