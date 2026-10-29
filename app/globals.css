@@ -144,3 +144,22 @@ th { background: var(--surface2); font-size: 13.5px; letter-spacing: 0.02em; }
   .calc-results { grid-template-columns: 1fr; }
   .calc-input { width: 100%; }
 }
+
+/* Light gold shimmer bar under H1s on new pages, and a 2px card hover lift. */
+.gold-bar {
+  height: 4px; width: 120px; border-radius: 999px; margin: 10px 0 16px;
+  background: linear-gradient(90deg, var(--gold), #f7e7a8, var(--gold));
+  background-size: 200% 100%;
+  animation: gold-shimmer 6s ease-in-out infinite;
+}
+@keyframes gold-shimmer {
+  0%, 100% { background-position: 0% 0; }
+  50% { background-position: 100% 0; }
+}
+.card, .city-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.card:hover, .city-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(15, 32, 64, 0.12); }
+@media (prefers-reduced-motion: reduce) {
+  .gold-bar { animation: none; }
+  .card, .city-card { transition: none; }
+  .card:hover, .city-card:hover { transform: none; }
+}

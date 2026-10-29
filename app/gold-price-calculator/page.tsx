@@ -122,6 +122,9 @@ export default async function CalculatorPage() {
             <a href="/#rates">22K</a>
             <a href="/#rates">18K</a>
             <a href="/gold-price-calculator/">Calculator</a>
+            <a href="/gold-rate-today-cities/">Cities</a>
+            <a href="/blog/">Blog</a>
+            <a href="/about/">About</a>
           </nav>
         </div>
       </header>

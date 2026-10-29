@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { SITE_URL, SITE_NAME, TAGLINE } from "@/lib/site";
-import { TIER_1_CITIES, inr, signed, signedPct } from "@/lib/rates";
+import { inr, signed, signedPct } from "@/lib/rates";
+import { CITIES, cityUrl } from "@/lib/cities";
+import { POSTS } from "@/lib/posts";
 import { getLiveGold } from "@/lib/live";
 
 const DESCRIPTION =
@@ -127,6 +129,9 @@ export default async function HomePage() {
             <a href="#rates">22K</a>
             <a href="#rates">18K</a>
             <a href="/gold-price-calculator/">Calculator</a>
+            <a href="/gold-rate-today-cities/">Cities</a>
+            <a href="/blog/">Blog</a>
+            <a href="/about/">About</a>
           </nav>
         </div>
       </header>
@@ -239,17 +244,17 @@ export default async function HomePage() {
           <h2>Gold Rate in Major Cities</h2>
           <p className="lead">
             These are the cities readers search for most often. Each card
-            shows the same national {data.live ? "live" : "sample"} base for
-            now. Separate city pages will follow in the next phase.
+            links to its own city page and shows the same national {data.live ? "live" : "sample"} base for
+            now. Each city page has its own rates, morning and evening table and FAQs.
           </p>
           <div className="city-grid">
-            {TIER_1_CITIES.map((c) => (
+            {CITIES.filter((c) => c.tier === 1).map((c) => (
               <article className="city-card" key={c.city}>
-                <h3>{c.city}</h3>
+                <h3><a href={cityUrl(c)}>Gold Rate in {c.city}</a></h3>
                 <p>{c.state}</p>
                 <p><span className="rate">24K: {inr(rate24.perGram)} / gram</span></p>
                 <p><span className="rate">22K: {inr(rate22.perGram)} / gram</span></p>
-                <p className="soon">City page coming in the next phase</p>
+                <p className="soon"><a href={cityUrl(c)}>Open the {c.city} page</a> · <a href="/gold-rate-today-cities/">All cities</a></p>
               </article>
             ))}
           </div>
@@ -364,6 +369,20 @@ export default async function HomePage() {
               <p>{f.a}</p>
             </details>
           ))}
+        </section>
+
+        <section className="block" aria-label="Latest from the blog">
+          <h2>Latest from the Blog</h2>
+          <div className="city-grid">
+            {[...POSTS].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 3).map((post) => (
+              <article className="city-card" key={post.slug}>
+                <h3><a href={`/blog/${post.slug}/`}>{post.title}</a></h3>
+                <p>{post.dateLabel}</p>
+                <p>{post.excerpt}</p>
+              </article>
+            ))}
+          </div>
+          <p className="lead"><a href="/blog/">All blog posts</a></p>
         </section>
 
         <footer className="footer">
