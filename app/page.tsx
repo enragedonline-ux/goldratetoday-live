@@ -126,7 +126,7 @@ export default async function HomePage() {
             <a href="#rates">24K</a>
             <a href="#rates">22K</a>
             <a href="#rates">18K</a>
-            <a href="#calculator">Calculator</a>
+            <a href="/gold-price-calculator/">Calculator</a>
           </nav>
         </div>
       </header>
@@ -309,9 +309,9 @@ export default async function HomePage() {
           <h2>Work Out the Price for Your Weight</h2>
           <p className="lead">
             Multiply the per-gram rate by the weight you need. The example
-            below uses 22K, the purity most jewellery is made in. The full
-            calculator, with GST and making charges added in, is the next
-            phase.
+            below uses 22K, the purity most jewellery is made in. For any
+            weight and any purity, with GST and making charges added in,
+            use the full calculator.
           </p>
           <table>
             <thead>
@@ -327,6 +327,7 @@ export default async function HomePage() {
             </tbody>
           </table>
           <p className="date-line">Metal cost only, before GST and making charges.</p>
+          <p><a className="cta" href="/gold-price-calculator/">Open the full calculator</a></p>
         </section>
 
         <section className="block" id="purity" aria-label="Purity guide">

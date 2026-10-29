@@ -113,3 +113,34 @@ th { background: var(--surface2); font-size: 13.5px; letter-spacing: 0.02em; }
   table { font-size: 14px; }
   th, td { padding: 9px 8px; }
 }
+
+/* Gold calculator (calculator page). */
+.calc { background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--gold); padding: 22px; border-radius: 6px; }
+.calc-live { color: var(--muted); font-size: 14.5px; margin: 0 0 18px; }
+.calc-field { margin: 0 0 18px; }
+.calc-label { display: block; font-weight: 600; font-size: 14.5px; margin-bottom: 8px; }
+.calc-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.calc-pill { background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 8px 14px; font: inherit; font-size: 14.5px; cursor: pointer; color: var(--ink); }
+.calc-pill small { color: var(--muted); font-size: 12.5px; }
+.calc-pill.on { border-color: var(--gold); color: var(--gold-dark); font-weight: 700; background: var(--gold-soft); }
+.calc-weight-row { display: flex; gap: 10px; align-items: center; }
+.calc-input { font: inherit; font-size: 16px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 6px; width: 180px; background: var(--surface); color: var(--ink); }
+.calc-unit { color: var(--muted); font-size: 14.5px; }
+.calc-presets { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.calc-preset { background: var(--surface2); border: 1px solid var(--border); border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 13.5px; cursor: pointer; color: var(--ink); }
+.calc-slider { width: 100%; accent-color: var(--gold); }
+.calc-slider-marks { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--muted); }
+.calc-results { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0 12px; }
+.calc-results > div { background: var(--gold-soft); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; }
+.calc-results span { display: block; font-size: 13.5px; color: var(--muted); }
+.calc-results strong { font-size: 20px; color: var(--ink); }
+.calc-results .calc-total { background: var(--navy); border-color: var(--navy); }
+.calc-results .calc-total span { color: var(--navy-text); }
+.calc-results .calc-total strong { color: var(--gold); font-size: 26px; }
+.calc-breakdown { font-size: 14px; color: var(--muted); }
+.cta { display: inline-block; background: var(--navy); color: var(--gold); text-decoration: none; font-weight: 700; padding: 10px 18px; border-radius: 6px; }
+.cta:hover { text-decoration: underline; }
+@media (max-width: 520px) {
+  .calc-results { grid-template-columns: 1fr; }
+  .calc-input { width: 100%; }
+}
