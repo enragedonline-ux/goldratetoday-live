@@ -79,6 +79,7 @@ export default function Footer() {
             {COMPANY_LINKS.map((l) => (
               <li key={l.href}><a href={l.href}>{l.label}</a></li>
             ))}
+            <li><a href="https://goldratetoday.online/" target="_blank" rel="noopener noreferrer">Other Site</a></li>
           </ul>
         </nav>
         <nav className="footer-col" aria-label="Resources">
