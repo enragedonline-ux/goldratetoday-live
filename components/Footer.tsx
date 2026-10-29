@@ -79,7 +79,6 @@ export default function Footer() {
             {COMPANY_LINKS.map((l) => (
               <li key={l.href}><a href={l.href}>{l.label}</a></li>
             ))}
-            <li><a href="https://goldratetoday.online/">Sister Site: goldratetoday.online</a></li>
           </ul>
         </nav>
         <nav className="footer-col" aria-label="Resources">
