@@ -24,6 +24,12 @@ const COMPANY_LINKS = [
   { href: "/blog/", label: "Blog" },
 ];
 
+const RESOURCE_LINKS = [
+  { href: "/sitemap.xml", label: "Sitemap" },
+  { href: "/llms.txt", label: "LLMs.txt" },
+  { href: "/robots.txt", label: "Robots.txt" },
+];
+
 export default function Footer() {
   const topCities = CITIES.filter((c) => c.tier === 1);
   return (
@@ -74,6 +80,14 @@ export default function Footer() {
               <li key={l.href}><a href={l.href}>{l.label}</a></li>
             ))}
             <li><a href="https://goldratetoday.online/">Sister Site: goldratetoday.online</a></li>
+          </ul>
+        </nav>
+        <nav className="footer-col" aria-label="Resources">
+          <h3>Resources</h3>
+          <ul>
+            {RESOURCE_LINKS.map((l) => (
+              <li key={l.href}><a href={l.href}>{l.label}</a></li>
+            ))}
           </ul>
         </nav>
       </div>

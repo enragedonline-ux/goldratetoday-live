@@ -101,7 +101,7 @@ th { background: var(--surface2); font-size: 13.5px; letter-spacing: 0.02em; }
 .faq summary { cursor: pointer; font-weight: 600; }
 .footer { border-top: 3px solid var(--gold); margin-top: 36px; padding: 28px 20px 40px; background: var(--navy); color: var(--navy-text); font-size: 14px; }
 .footer strong { color: var(--gold); }
-.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 24px; margin-bottom: 24px; text-align: left; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr; gap: 24px; margin-bottom: 24px; text-align: left; }
 .footer-col h3 { color: var(--gold); font-size: 16px; margin-bottom: 10px; }
 .footer-col ul { list-style: none; margin: 0; padding: 0; }
 .footer-col li { margin: 6px 0; font-size: 14.5px; }
