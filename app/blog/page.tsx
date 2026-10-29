@@ -36,13 +36,16 @@ export default function BlogIndex() {
         <p>Short, plain guides to buying gold in India: what purity means, how your bill is built, and why the rate moves. Every guide starts with the direct answer, then explains it.</p>
       </div>
       <section className="block" aria-label="Blog posts">
-        {sorted.map((p) => (
-          <article key={p.slug} style={{ marginBottom: 24 }}>
-            <h2 style={{ fontSize: 22 }}><a href={`/blog/${p.slug}/`}>{p.title}</a></h2>
-            <p className="date-line">{p.dateLabel}</p>
-            <p>{p.excerpt}</p>
-          </article>
-        ))}
+        <div className="blog-grid">
+          {sorted.map((p) => (
+            <article className="blog-card" key={p.slug}>
+              <p className="date-line">{p.dateLabel}</p>
+              <h2><a href={`/blog/${p.slug}/`}>{p.title}</a></h2>
+              <p>{p.excerpt}</p>
+              <p><a className="read" href={`/blog/${p.slug}/`}>Read guide →</a></p>
+            </article>
+          ))}
+        </div>
       </section>
     </SiteChrome>
   );

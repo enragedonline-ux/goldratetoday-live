@@ -5,6 +5,7 @@ import { inr, signed, signedPct } from "@/lib/rates";
 import { CITIES, cityUrl } from "@/lib/cities";
 import { POSTS } from "@/lib/posts";
 import { getLiveGold } from "@/lib/live";
+import Footer from "@/components/Footer";
 
 const DESCRIPTION =
   "Gold rate in India today for 24K, 22K, 18K and 14K, per gram and per 10 gram, with morning and evening rates and a purity guide.";
@@ -384,35 +385,8 @@ export default async function HomePage() {
           </div>
           <p className="lead"><a href="/blog/">All blog posts</a></p>
         </section>
-
-        <footer className="footer">
-          <p>
-            <strong>{SITE_NAME}</strong> — {TAGLINE}.
-          </p>
-          <p>
-            Disclaimer:{" "}
-            {data.live ? (
-              <>
-                the rates on this page are international spot prices
-                converted to INR, shown before 3% GST and before making
-                charges. This is a benchmark before import duty, GST,
-                dealer premium and making charges — your local
-                jeweller&apos;s rate will be higher.
-              </>
-            ) : (
-              <>
-                the rates on this page are a dated sample set for{" "}
-                {data.dateLabel}, shown before 3% GST and before making
-                charges.
-              </>
-            )}{" "}
-            They are not investment advice. Prices vary by jeweller and by
-            city, so confirm the full break-up, including GST and making
-            charges, with your local jeweller before buying.
-          </p>
-          <p>© 2026 {SITE_NAME} · goldratetoday.live</p>
-        </footer>
       </main>
+      <Footer />
     </>
   );
 }

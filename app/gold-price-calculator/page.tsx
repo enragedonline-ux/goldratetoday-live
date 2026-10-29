@@ -4,6 +4,7 @@ import { SITE_URL, SITE_NAME, TAGLINE } from "@/lib/site";
 import { inr } from "@/lib/rates";
 import { getLiveGold } from "@/lib/live";
 import GoldCalculator from "@/components/GoldCalculator";
+import Footer from "@/components/Footer";
 
 const DESCRIPTION =
   "Work out what your gold is worth in India. Enter the weight, pick 24K, 22K, 18K or 14K, and get the metal cost with 3% GST and making charges.";
@@ -250,35 +251,8 @@ export default async function CalculatorPage() {
             numbers mean.
           </p>
         </section>
-
-        <footer className="footer">
-          <p>
-            <strong>{SITE_NAME}</strong> — {TAGLINE}.
-          </p>
-          <p>
-            Disclaimer:{" "}
-            {data.live ? (
-              <>
-                the rates on this page are international spot prices
-                converted to INR, shown before 3% GST and before making
-                charges. This is a benchmark before import duty, GST,
-                dealer premium and making charges — your local
-                jeweller&apos;s rate will be higher.
-              </>
-            ) : (
-              <>
-                the rates on this page are a dated sample set for{" "}
-                {data.dateLabel}, shown before 3% GST and before making
-                charges.
-              </>
-            )}{" "}
-            They are not investment advice. Prices vary by jeweller and by
-            city, so confirm the full break-up, including GST and making
-            charges, with your local jeweller before buying.
-          </p>
-          <p>© 2026 {SITE_NAME} · goldratetoday.live</p>
-        </footer>
       </main>
+      <Footer />
     </>
   );
 }
