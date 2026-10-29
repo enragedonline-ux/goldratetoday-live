@@ -29,18 +29,20 @@ const FAQS = [
   },
 ];
 
+const HOME_DESCRIPTION = "Best live gold rate today in India for 24K, 22K, 18K and 14K. Check city-wise gold rates now — accurate benchmark prices updated every 60 seconds.";
+
 export const metadata: Metadata = {
-  title: "Gold Rate Today in India: 24K, 22K, 18K, 14K Rates",
-  description: DESCRIPTION,
+  title: "Gold Rate Today in India | Live Gold Rate | GoldRateToday",
+  description: HOME_DESCRIPTION,
   alternates: { canonical: `${SITE_URL}/` },
   openGraph: {
-    title: "Gold Rate Today in India: 24K, 22K, 18K, 14K Rates",
-    description: DESCRIPTION,
+    title: "Gold Rate Today in India | Live Gold Rate | GoldRateToday",
+    description: HOME_DESCRIPTION,
     url: `${SITE_URL}/`,
     siteName: SITE_NAME,
     type: "website",
   },
-  twitter: { card: "summary", title: "Gold Rate Today in India: 24K, 22K, 18K, 14K Rates", description: DESCRIPTION },
+  twitter: { card: "summary", title: "Gold Rate Today in India | Live Gold Rate | GoldRateToday", description: HOME_DESCRIPTION },
 };
 
 export default async function HomePage() {
@@ -72,7 +74,7 @@ export default async function HomePage() {
         "@id": `${SITE_URL}/`,
         url: `${SITE_URL}/`,
         name: "Gold Rate Today in India",
-        description: DESCRIPTION,
+        description: HOME_DESCRIPTION,
         isPartOf: { "@type": "WebSite", name: SITE_NAME, url: `${SITE_URL}/` },
       },
       {
