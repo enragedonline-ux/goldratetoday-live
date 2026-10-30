@@ -23,6 +23,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   alternates: { canonical: `${SITE_URL}/` },
   icons: { icon: "/favicon.svg" },
+  verification: { google: "RVS2OTOLGldSIvr492rvnxJ5lf4M5ZvDWVXdRHt4AjM" },
   openGraph: {
     title: "Gold Rate Today in India | GoldRateToday",
     description:
