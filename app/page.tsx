@@ -6,6 +6,7 @@ import { CITIES, cityUrl } from "@/lib/cities";
 import { POSTS } from "@/lib/posts";
 import { getLiveGold } from "@/lib/live";
 import Footer from "@/components/Footer";
+import { BannerAd, NativeAd } from "@/components/Ads";
 
 const DESCRIPTION =
   "Gold rate in India today for 24K, 22K, 18K and 14K, per gram and per 10 gram, with morning and evening rates and a purity guide.";
@@ -132,6 +133,8 @@ export default async function HomePage() {
           </nav>
         </div>
       </header>
+
+      <BannerAd />
 
       <main className="wrap" id="top">
         <div className="notice" role="note">
@@ -382,6 +385,7 @@ export default async function HomePage() {
           <p className="lead"><a href="/blog/">All blog posts</a></p>
         </section>
       </main>
+      <NativeAd />
       <Footer />
     </>
   );

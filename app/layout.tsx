@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import { SITE_URL } from "@/lib/site";
+import { PopunderScript } from "@/components/Ads";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -47,7 +48,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <PopunderScript />
+      </body>
     </html>
   );
 }

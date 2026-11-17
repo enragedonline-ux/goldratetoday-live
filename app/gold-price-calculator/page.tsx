@@ -5,6 +5,7 @@ import { inr } from "@/lib/rates";
 import { getLiveGold } from "@/lib/live";
 import GoldCalculator from "@/components/GoldCalculator";
 import Footer from "@/components/Footer";
+import { BannerAd, NativeAd } from "@/components/Ads";
 
 const DESCRIPTION =
   "Work out what your gold is worth in India. Enter the weight, pick 24K, 22K, 18K or 14K, and get the metal cost with 3% GST and making charges.";
@@ -126,6 +127,8 @@ export default async function CalculatorPage() {
           </nav>
         </div>
       </header>
+
+      <BannerAd />
 
       <main className="wrap" id="top">
         <div className="notice" role="note">
@@ -249,6 +252,7 @@ export default async function CalculatorPage() {
           </p>
         </section>
       </main>
+      <NativeAd />
       <Footer />
     </>
   );

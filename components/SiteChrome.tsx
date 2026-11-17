@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import Footer from "@/components/Footer";
+import { BannerAd, NativeAd } from "@/components/Ads";
 
 const NAV = [
   { href: "/", label: "Home" },
@@ -29,9 +30,11 @@ export default function SiteChrome({ children }: { children: ReactNode }) {
           </nav>
         </div>
       </header>
+      <BannerAd />
       <main className="wrap" id="top">
         {children}
       </main>
+      <NativeAd />
       <Footer />
     </>
   );

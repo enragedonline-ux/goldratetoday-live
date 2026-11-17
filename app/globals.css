@@ -183,3 +183,17 @@ th { background: var(--surface2); font-size: 13.5px; letter-spacing: 0.02em; }
   .card, .city-card { transition: none; }
   .card:hover, .city-card:hover { transform: none; }
 }
+
+/* Bauval ad slots (added 2026-11-17, goldratetoday.live): one 468x60 banner
+   under the header and one native widget above the footer, on every page.
+   Centred, no sticky/floating behaviour, no reserved blank space — an
+   unfilled slot collapses after 6s (see components/Ads.tsx). */
+.ad-slot { max-width: 1080px; margin: 18px auto 0; padding: 0 20px; text-align: center; }
+.ad-slot.is-empty { display: none; }
+.ad-label { display: block; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.ad-slot.is-empty .ad-label { display: none; }
+.ad-banner iframe { max-width: 100%; }
+.ad-native > div[id^="container-"] { max-width: 100%; overflow: hidden; }
+@media (max-width: 520px) {
+  .ad-slot { margin-top: 12px; }
+}
