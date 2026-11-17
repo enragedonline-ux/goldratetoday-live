@@ -34,7 +34,7 @@ export default async function BlogPost({ params }: Props) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "Article", "@id": url, url, headline: p.title, description: p.description, datePublished: p.date, author: { "@type": "Organization", name: SITE_NAME, url: `${SITE_URL}/` }, publisher: { "@type": "Organization", name: SITE_NAME, url: `${SITE_URL}/` }, mainEntityOfPage: url },
+      { "@type": "Article", "@id": url, url, headline: p.title, description: p.description, image: p.image ? `${SITE_URL}${p.image.src}` : undefined, datePublished: p.date, author: { "@type": "Organization", name: SITE_NAME, url: `${SITE_URL}/` }, publisher: { "@type": "Organization", name: SITE_NAME, url: `${SITE_URL}/` }, mainEntityOfPage: url },
       { "@type": "BreadcrumbList", itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
         { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog/` },
@@ -51,10 +51,21 @@ export default async function BlogPost({ params }: Props) {
         <p className="date-line">{p.dateLabel} · GoldRateToday</p>
         <p><strong>{firstPara}</strong></p>
       </div>
+      {p.image && (
+        <figure style={{ margin: "28px 0 0" }}>
+          <img src={p.image.src} alt={p.image.alt} width={800} height={480} style={{ display: "block", width: "100%", height: "auto", borderRadius: 6, border: "1px solid var(--border)" }} />
+          {p.image.caption && <figcaption style={{ fontSize: 14, color: "var(--muted)", marginTop: 8 }}>{p.image.caption}</figcaption>}
+        </figure>
+      )}
       {p.sections.map((s, i) => (
         <section className="block" key={s.heading} aria-label={s.heading}>
-          {i === 0 ? null : <h2>{s.heading}</h2>}
+          <h2>{s.heading}</h2>
           {(i === 0 ? s.paragraphs.slice(1) : s.paragraphs).map((para, j) => (<p key={j}>{para}</p>))}
+          {s.bullets && s.bullets.length > 0 && (
+            <ul style={{ margin: "0 0 16px", paddingLeft: 22, lineHeight: 1.7 }}>
+              {s.bullets.map((b, k) => (<li key={k} style={{ margin: "6px 0" }}>{b}</li>))}
+            </ul>
+          )}
         </section>
       ))}
       <section className="block" aria-label="Related pages">
