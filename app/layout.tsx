@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Fraunces, Inter } from "next/font/google";
 import { SITE_URL } from "@/lib/site";
 import { PopunderScript, AbsCloudPopunderScript, AraplhnPopunderScript } from "@/components/Ads";
@@ -49,6 +50,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
+      <head>
+        {/* Google Tag Manager (added 2026-11-18 at the user's request). */}
+        <Script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5QXSFBMP" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());`,
+          }}
+        />
+      </head>
       <body>
         {children}
         <PopunderScript />
