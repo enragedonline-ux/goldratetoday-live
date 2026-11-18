@@ -197,3 +197,27 @@ th { background: var(--surface2); font-size: 13.5px; letter-spacing: 0.02em; }
 @media (max-width: 520px) {
   .ad-slot { margin-top: 12px; }
 }
+
+/* Small visit popup banner (added 2026-11-18, goldratetoday.live):
+   opens on visit, closes on X click (or backdrop click), once per session. */
+.popup-overlay {
+  position: fixed; inset: 0; z-index: 50;
+  background: rgba(15, 32, 64, 0.55);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+}
+.popup-card {
+  position: relative; background: var(--surface);
+  border: 1px solid var(--border); border-top: 3px solid var(--gold);
+  border-radius: 8px; max-width: 360px; width: 100%;
+  padding: 22px 22px 20px;
+  box-shadow: 0 12px 40px rgba(15, 32, 64, 0.35);
+}
+.popup-card h3 { font-size: 21px; color: var(--navy); margin-bottom: 6px; padding-right: 28px; }
+.popup-card p { color: var(--muted); font-size: 14.5px; margin: 0 0 16px; }
+.popup-close {
+  position: absolute; top: 8px; right: 10px;
+  background: none; border: none; font-size: 22px; line-height: 1;
+  color: var(--muted); cursor: pointer; padding: 4px 6px;
+}
+.popup-close:hover { color: var(--ink); }

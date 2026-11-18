@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import { SITE_URL } from "@/lib/site";
 import { PopunderScript, AbsCloudPopunderScript, AraplhnPopunderScript } from "@/components/Ads";
+import { PopupBanner } from "@/components/PopupBanner";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -53,6 +54,7 @@ export default function RootLayout({
         <PopunderScript />
         <AbsCloudPopunderScript />
         <AraplhnPopunderScript />
+        <PopupBanner />
       </body>
     </html>
   );
