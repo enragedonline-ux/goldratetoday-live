@@ -25,6 +25,7 @@ declare global {
     __grtNativeLoaded?: boolean;
     __grtPopunderLoaded?: boolean;
     __grtAbsCloudPopunderLoaded?: boolean;
+    __grtAraplhnPopunderLoaded?: boolean;
   }
 }
 
@@ -123,6 +124,26 @@ export function AbsCloudPopunderScript() {
     if (window.__grtAbsCloudPopunderLoaded) return;
     window.__grtAbsCloudPopunderLoaded = true;
     injectScript("https://abscloud.org/1/a392cde5015f6a2edc12f27398234b84", {
+      "data-cfasync": "false",
+    });
+  }, []);
+  return null;
+}
+
+/**
+ * Popunder (araplhn.org /4/). Renders nothing; loads the global script
+ * once. Added 2026-11-18 at the user's request — the user confirmed this
+ * is their ad network's link ("add ka link ha"). Same popunder behaviour
+ * as the bauval/abscloud ones above: it opens an extra tab/window for the
+ * visitor. Rendered in the root layout (app/layout.tsx) so it loads on
+ * every page, including new pages, by default. Removing it is one line in
+ * app/layout.tsx.
+ */
+export function AraplhnPopunderScript() {
+  useEffect(() => {
+    if (window.__grtAraplhnPopunderLoaded) return;
+    window.__grtAraplhnPopunderLoaded = true;
+    injectScript("https://araplhn.org/4/4a19618a8f1b7630a1a0a9d9d4e635f7", {
       "data-cfasync": "false",
     });
   }, []);
