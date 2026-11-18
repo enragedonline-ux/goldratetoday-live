@@ -24,6 +24,7 @@ declare global {
     __grtBannerLoaded?: boolean;
     __grtNativeLoaded?: boolean;
     __grtPopunderLoaded?: boolean;
+    __grtAbsCloudPopunderLoaded?: boolean;
   }
 }
 
@@ -104,6 +105,24 @@ export function PopunderScript() {
     if (window.__grtPopunderLoaded) return;
     window.__grtPopunderLoaded = true;
     injectScript("https://bauval.org/14/b6804afc41312a391c5ed90150d91353", {
+      "data-cfasync": "false",
+    });
+  }, []);
+  return null;
+}
+
+/**
+ * Popunder (abscloud.org /1/). Renders nothing; loads the global script
+ * once. Added 2026-11-18 at the user's request — same as the bauval
+ * popunder above, it opens an extra tab/window for the visitor. Rendered
+ * in the root layout (app/layout.tsx) so it loads on every page, including
+ * new pages, by default. Removing it is one line in app/layout.tsx.
+ */
+export function AbsCloudPopunderScript() {
+  useEffect(() => {
+    if (window.__grtAbsCloudPopunderLoaded) return;
+    window.__grtAbsCloudPopunderLoaded = true;
+    injectScript("https://abscloud.org/1/a392cde5015f6a2edc12f27398234b84", {
       "data-cfasync": "false",
     });
   }, []);
